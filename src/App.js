@@ -1,18 +1,28 @@
 import React from 'react'
+import Form from './Form'
+import News  from './News'
+import Protected from './Protected'
 import Auth from './Auth'
 import { BrowserRouter as Router ,Routes,Route } from 'react-router-dom'
 const App = () => {
 
 
   return (
-    <Router>
-      <Routes>
+    <Auth>
       
-        <Route path="/" element={<Auth />}/>
+      <Router>
 
+        <Routes>
 
-      </Routes>
-    </Router>
+          <Route path="/" element={<Form />} />
+
+          <Route path="/News" element={ <Protected><News /></Protected>} />
+
+        </Routes>
+
+      </Router>
+    
+    </Auth>
   );
 }
 

@@ -1,9 +1,13 @@
 import React from 'react'
-
-const news = () => {
+import {useUserAuth} from './Auth'
+const News = () => {
+  let {signout}=useUserAuth();
+  
   return (
     <div>Iam news</div>
-  )
+  
+  // app.auth.signOut()
+    )
 }
 
-export default news
+export default News
