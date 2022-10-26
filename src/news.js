@@ -1,13 +1,17 @@
 import React from 'react'
-import {useUserAuth} from './Auth'
+import {Box} from '@material-ui/core'
+import NavBar from './NavBar'
 const News = () => {
-  let {signout}=useUserAuth();
-  
   return (
-    <div>Iam news</div>
-  
-  // app.auth.signOut()
+
+<Box sx={{padding:'10px',overflow:'hidden',background: 'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)' }}>
+
+<NavBar/>
+
+</Box>  
+
     )
 }
 
 export default News
+

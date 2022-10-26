@@ -1,19 +1,19 @@
-import { createContext } from "react";
+import { createContext ,useContext} from "react";
 
 let createAuth=createContext()
-import auth from './Firebase'
+import {auth} from './Firebase'
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  GoogleAuthProvider,signInwithPopup
+  GoogleAuthProvider,signInWithPopup
 } from "firebase/auth";
 import { useEffect ,useState} from "react";
 
  let Auth=({children})=>{
 console.log(children)
-let [user,setuser] =useState(null);
+let [user,setuser] =useState('');
   let signUp=(email,password)=>{
 
 return createUserWithEmailAndPassword(auth,email,password);
@@ -32,16 +32,20 @@ return signInWithEmailAndPassword(auth,email,password);
   let signwithgoogle=()=>{
 
     let google=new GoogleAuthProvider();
-    return signInwithPopup(auth,google);
-
+    return signInWithPopup(auth,google);
   }
 
   useEffect(()=>{
-onAuthStateChanged(auth,(curuser)=>{
+const unsub=onAuthStateChanged(auth,(curuser)=>{
 
 setuser(curuser)
 
 })
+
+return ()=>{
+unsub()
+
+}
 
   },[])
 return (
