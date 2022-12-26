@@ -10,8 +10,8 @@ import { ConfigurationOptions } from 'aws-sdk'
 
 const configuration={
     region: 'ap-south-1',
-    secretAccessKey: 'TGHmPl+j0hiEH2kHwO6SQHkHHRCZGoFTkoA2pIZU',
-    accessKeyId: 'AKIAVUZGXF7V4TZ2LQFR',
+    secretAccessKey: 'skey'
+    accessKeyId: 'key'
 }
 
 AWS.config.update(configuration)
